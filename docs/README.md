@@ -1,3 +1,22 @@
+# Pcapify fork
+This fork adds bsim2pcap.py which can be used to convert BabbleSim csv files into pcap files
+with use of pcapify. It takes csv files, converts it into hex file and feeds pcapify with it.
+
+# Usage of bsim2pcap.py
+
+Required arguments:
+
+* cf - a list of input csv files (_Rx_ ones)
+* of - name of output .pcap file
+
+Optional argument:
+
+* nofcs - This will trim 2 last bytes of the packet (FCS bytes in case of 802.15.4)
+
+```
+$ python3 bsim2pcap.py -cf d_2G4_00.Rx.csv d_2G4_01.Rx.csv d_2G4_02.Rx.csv -of out.pcap -nofcs
+```
+
 # IEEE 802.15.4 packet logs to PCAP files 
 
 In this repository resides Pcapify, a simple Python script for converting log files of IEEE 802.15.4 traffic, for instance, collected with Bitsniff, to PCAP files.
