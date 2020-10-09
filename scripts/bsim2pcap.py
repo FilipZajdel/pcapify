@@ -114,7 +114,9 @@ class App:
                 if len(packet) > 0:
                     packet = packet.replace(" ", "")
                     packet = packet[:-4] if self.delete_fcs else packet
-                    hex_logs.append(self.hex_creator.create_line(int(timestamp), packet))
+                    line = self.hex_creator.create_line(int(timestamp), packet)                   
+                    if line not in hex_logs:
+                        hex_logs.append(self.hex_creator.create_line(int(timestamp), packet))
 
         with open(self.hex_file_path, "w") as out_file:
             for log in hex_logs:
